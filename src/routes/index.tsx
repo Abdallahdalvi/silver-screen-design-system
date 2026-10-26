@@ -1,24 +1,49 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { PageShell } from "@/components/site/page-shell";
+import { Hero } from "@/components/home/hero";
+import { CustomerMarquee } from "@/components/home/logo-marquee";
+import { Metrics } from "@/components/home/metrics";
+import { WhyUbiqedge } from "@/components/home/why-ubiqedge";
+import { Products } from "@/components/home/products";
+import { Solutions } from "@/components/home/solutions";
+import { PlatformFlow } from "@/components/home/platform-flow";
+import { BlogSection } from "@/components/home/blog-section";
+import { FinalCta } from "@/components/home/final-cta";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Ubiqedge | Full-Stack AIoT Platform for Smart Infrastructure" },
+      {
+        name: "description",
+        content:
+          "Ubiqedge helps enterprises modernize and manage IT and edge infrastructure with AI- and IoT-driven solutions — KLEON rugged hardware and the SAMASTH cloud platform.",
+      },
+      { property: "og:title", content: "Ubiqedge | Full-Stack AIoT Platform for Smart Infrastructure" },
+      {
+        property: "og:description",
+        content:
+          "Smart Water, Solar PV, Concrete and Air Quality solutions — powered by KLEON IoT hardware and SAMASTH cloud monitoring, control and analytics.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <PageShell>
+      <Hero />
+      <CustomerMarquee />
+      <Metrics />
+      <WhyUbiqedge />
+      <Products />
+      <Solutions />
+      <PlatformFlow />
+      <BlogSection />
+      <FinalCta />
+    </PageShell>
   );
 }
