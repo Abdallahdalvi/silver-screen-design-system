@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as KleonRouteImport } from './routes/kleon'
+import { Route as SamasthRouteImport } from './routes/samasth'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const KleonRoute = KleonRouteImport.update({
+  id: '/kleon',
+  path: '/kleon',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SamasthRoute = SamasthRouteImport.update({
+  id: '/samasth',
+  path: '/samasth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/kleon': typeof KleonRoute
+  '/samasth': typeof SamasthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/kleon': typeof KleonRoute
+  '/samasth': typeof SamasthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/kleon': typeof KleonRoute
+  '/samasth': typeof SamasthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/kleon' | '/samasth'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/kleon' | '/samasth'
+  id: '__root__' | '/' | '/kleon' | '/samasth'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  KleonRoute: typeof KleonRoute
+  SamasthRoute: typeof SamasthRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/kleon': {
+      id: '/kleon'
+      path: '/kleon'
+      fullPath: '/kleon'
+      preLoaderRoute: typeof KleonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/samasth': {
+      id: '/samasth'
+      path: '/samasth'
+      fullPath: '/samasth'
+      preLoaderRoute: typeof SamasthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  KleonRoute: KleonRoute,
+  SamasthRoute: SamasthRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
