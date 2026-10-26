@@ -10,12 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutUsRouteImport } from './routes/about-us'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as CareerRouteImport } from './routes/career'
+import { Route as ContactUsRouteImport } from './routes/contact-us'
 import { Route as KleonRouteImport } from './routes/kleon'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SamasthRouteImport } from './routes/samasth'
+import { Route as TermsConditionsRouteImport } from './routes/terms-conditions'
+import { Route as WhitepaperRouteImport } from './routes/whitepaper'
+import { Route as SolutionsConcreteManagementRouteImport } from './routes/solutions/concrete-management'
+import { Route as SolutionsEnergyManagementRouteImport } from './routes/solutions/energy-management'
+import { Route as SolutionsEnvironmentalMonitoringRouteImport } from './routes/solutions/environmental-monitoring'
+import { Route as SolutionsWaterManagementRouteImport } from './routes/solutions/water-management'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareerRoute = CareerRouteImport.update({
+  id: '/career',
+  path: '/career',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactUsRoute = ContactUsRouteImport.update({
+  id: '/contact-us',
+  path: '/contact-us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KleonRoute = KleonRouteImport.update({
@@ -23,40 +54,166 @@ const KleonRoute = KleonRouteImport.update({
   path: '/kleon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SamasthRoute = SamasthRouteImport.update({
   id: '/samasth',
   path: '/samasth',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TermsConditionsRoute = TermsConditionsRouteImport.update({
+  id: '/terms-conditions',
+  path: '/terms-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhitepaperRoute = WhitepaperRouteImport.update({
+  id: '/whitepaper',
+  path: '/whitepaper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsConcreteManagementRoute =
+  SolutionsConcreteManagementRouteImport.update({
+    id: '/solutions/concrete-management',
+    path: '/solutions/concrete-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsEnergyManagementRoute =
+  SolutionsEnergyManagementRouteImport.update({
+    id: '/solutions/energy-management',
+    path: '/solutions/energy-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsEnvironmentalMonitoringRoute =
+  SolutionsEnvironmentalMonitoringRouteImport.update({
+    id: '/solutions/environmental-monitoring',
+    path: '/solutions/environmental-monitoring',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const SolutionsWaterManagementRoute =
+  SolutionsWaterManagementRouteImport.update({
+    id: '/solutions/water-management',
+    path: '/solutions/water-management',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/contact-us': typeof ContactUsRoute
   '/kleon': typeof KleonRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/samasth': typeof SamasthRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/whitepaper': typeof WhitepaperRoute
+  '/solutions/concrete-management': typeof SolutionsConcreteManagementRoute
+  '/solutions/energy-management': typeof SolutionsEnergyManagementRoute
+  '/solutions/environmental-monitoring': typeof SolutionsEnvironmentalMonitoringRoute
+  '/solutions/water-management': typeof SolutionsWaterManagementRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/contact-us': typeof ContactUsRoute
   '/kleon': typeof KleonRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/samasth': typeof SamasthRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/whitepaper': typeof WhitepaperRoute
+  '/solutions/concrete-management': typeof SolutionsConcreteManagementRoute
+  '/solutions/energy-management': typeof SolutionsEnergyManagementRoute
+  '/solutions/environmental-monitoring': typeof SolutionsEnvironmentalMonitoringRoute
+  '/solutions/water-management': typeof SolutionsWaterManagementRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
+  '/blogs': typeof BlogsRoute
+  '/career': typeof CareerRoute
+  '/contact-us': typeof ContactUsRoute
   '/kleon': typeof KleonRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/samasth': typeof SamasthRoute
+  '/terms-conditions': typeof TermsConditionsRoute
+  '/whitepaper': typeof WhitepaperRoute
+  '/solutions/concrete-management': typeof SolutionsConcreteManagementRoute
+  '/solutions/energy-management': typeof SolutionsEnergyManagementRoute
+  '/solutions/environmental-monitoring': typeof SolutionsEnvironmentalMonitoringRoute
+  '/solutions/water-management': typeof SolutionsWaterManagementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/kleon' | '/samasth'
+  fullPaths:
+    | '/'
+    | '/about-us'
+    | '/blogs'
+    | '/career'
+    | '/contact-us'
+    | '/kleon'
+    | '/privacy-policy'
+    | '/samasth'
+    | '/terms-conditions'
+    | '/whitepaper'
+    | '/solutions/concrete-management'
+    | '/solutions/energy-management'
+    | '/solutions/environmental-monitoring'
+    | '/solutions/water-management'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/kleon' | '/samasth'
-  id: '__root__' | '/' | '/kleon' | '/samasth'
+  to:
+    | '/'
+    | '/about-us'
+    | '/blogs'
+    | '/career'
+    | '/contact-us'
+    | '/kleon'
+    | '/privacy-policy'
+    | '/samasth'
+    | '/terms-conditions'
+    | '/whitepaper'
+    | '/solutions/concrete-management'
+    | '/solutions/energy-management'
+    | '/solutions/environmental-monitoring'
+    | '/solutions/water-management'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-us'
+    | '/blogs'
+    | '/career'
+    | '/contact-us'
+    | '/kleon'
+    | '/privacy-policy'
+    | '/samasth'
+    | '/terms-conditions'
+    | '/whitepaper'
+    | '/solutions/concrete-management'
+    | '/solutions/energy-management'
+    | '/solutions/environmental-monitoring'
+    | '/solutions/water-management'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
+  BlogsRoute: typeof BlogsRoute
+  CareerRoute: typeof CareerRoute
+  ContactUsRoute: typeof ContactUsRoute
   KleonRoute: typeof KleonRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SamasthRoute: typeof SamasthRoute
+  TermsConditionsRoute: typeof TermsConditionsRoute
+  WhitepaperRoute: typeof WhitepaperRoute
+  SolutionsConcreteManagementRoute: typeof SolutionsConcreteManagementRoute
+  SolutionsEnergyManagementRoute: typeof SolutionsEnergyManagementRoute
+  SolutionsEnvironmentalMonitoringRoute: typeof SolutionsEnvironmentalMonitoringRoute
+  SolutionsWaterManagementRoute: typeof SolutionsWaterManagementRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,11 +225,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/career': {
+      id: '/career'
+      path: '/career'
+      fullPath: '/career'
+      preLoaderRoute: typeof CareerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact-us': {
+      id: '/contact-us'
+      path: '/contact-us'
+      fullPath: '/contact-us'
+      preLoaderRoute: typeof ContactUsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/kleon': {
       id: '/kleon'
       path: '/kleon'
       fullPath: '/kleon'
       preLoaderRoute: typeof KleonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/samasth': {
@@ -82,13 +274,66 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SamasthRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/terms-conditions': {
+      id: '/terms-conditions'
+      path: '/terms-conditions'
+      fullPath: '/terms-conditions'
+      preLoaderRoute: typeof TermsConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/whitepaper': {
+      id: '/whitepaper'
+      path: '/whitepaper'
+      fullPath: '/whitepaper'
+      preLoaderRoute: typeof WhitepaperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/concrete-management': {
+      id: '/solutions/concrete-management'
+      path: '/solutions/concrete-management'
+      fullPath: '/solutions/concrete-management'
+      preLoaderRoute: typeof SolutionsConcreteManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/energy-management': {
+      id: '/solutions/energy-management'
+      path: '/solutions/energy-management'
+      fullPath: '/solutions/energy-management'
+      preLoaderRoute: typeof SolutionsEnergyManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/environmental-monitoring': {
+      id: '/solutions/environmental-monitoring'
+      path: '/solutions/environmental-monitoring'
+      fullPath: '/solutions/environmental-monitoring'
+      preLoaderRoute: typeof SolutionsEnvironmentalMonitoringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/water-management': {
+      id: '/solutions/water-management'
+      path: '/solutions/water-management'
+      fullPath: '/solutions/water-management'
+      preLoaderRoute: typeof SolutionsWaterManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
+  BlogsRoute: BlogsRoute,
+  CareerRoute: CareerRoute,
+  ContactUsRoute: ContactUsRoute,
   KleonRoute: KleonRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SamasthRoute: SamasthRoute,
+  TermsConditionsRoute: TermsConditionsRoute,
+  WhitepaperRoute: WhitepaperRoute,
+  SolutionsConcreteManagementRoute: SolutionsConcreteManagementRoute,
+  SolutionsEnergyManagementRoute: SolutionsEnergyManagementRoute,
+  SolutionsEnvironmentalMonitoringRoute: SolutionsEnvironmentalMonitoringRoute,
+  SolutionsWaterManagementRoute: SolutionsWaterManagementRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
