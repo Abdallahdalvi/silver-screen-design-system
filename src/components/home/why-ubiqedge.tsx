@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import { why, assets } from "@/content/site";
+import { why } from "@/content/site";
+import { assets } from "@/assets";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
 import { btnGhostLight } from "@/components/site/ui";

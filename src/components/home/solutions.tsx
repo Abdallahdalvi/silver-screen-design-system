@@ -9,8 +9,8 @@ import { btnPrimary } from "@/components/site/ui";
 import { cn } from "@/lib/utils";
 
 export function Solutions() {
-  const [active, setActive] = useState(solutions[0].id);
-  const current = solutions.find((s) => s.id === active) ?? solutions[0];
+  const [active, setActive] = useState(solutions[0]!.id);
+  const current = solutions.find((s) => s.id === active) ?? solutions[0]!;
 
   return (
     <section id="solutions" className="bg-background py-20 sm:py-28">

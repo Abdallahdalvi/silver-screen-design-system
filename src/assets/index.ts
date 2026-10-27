@@ -1,3 +1,9 @@
+import heroGeneratedUrl from "./hero-generated.png";
+import samasthDashboardUrl from "./samasth-dashboard.png";
+import solutionWaterUrl from "./solution-water.png";
+import solutionSolarUrl from "./solution-solar.png";
+import solutionConcreteUrl from "./solution-concrete.png";
+import solutionAirUrl from "./solution-air.png";
 import logo from "./logo2.asset.json";
 import adani from "./logo-adani.asset.json";
 import ansys from "./logo-ansys.asset.json";
@@ -53,10 +59,10 @@ export const assets = {
   samasthWorks: u(samasthWorks),
   samasth2: u(samasth2),
   // Generated cinematic scenes (illustrative visuals, not product photography)
-  heroGenerated: new URL("./hero-generated.png", import.meta.url).href,
-  samasthDashboard: new URL("./samasth-dashboard.png", import.meta.url).href,
-  solutionWater: new URL("./solution-water.png", import.meta.url).href,
-  solutionSolar: new URL("./solution-solar.png", import.meta.url).href,
-  solutionConcrete: new URL("./solution-concrete.png", import.meta.url).href,
-  solutionAir: new URL("./solution-air.png", import.meta.url).href,
+  heroGenerated: heroGeneratedUrl,
+  samasthDashboard: samasthDashboardUrl,
+  solutionWater: solutionWaterUrl,
+  solutionSolar: solutionSolarUrl,
+  solutionConcrete: solutionConcreteUrl,
+  solutionAir: solutionAirUrl,
 };

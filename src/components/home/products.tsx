@@ -77,7 +77,7 @@ export function Products() {
                 className="absolute -inset-6 rounded-[2.5rem] opacity-30 blur-3xl"
                 style={{ background: "radial-gradient(closest-side, var(--color-brand), transparent)" }}
               />
-              <motion.div whileHover={reduce ? undefined : { rotate: -1.5, scale: 1.02 }} transition={{ type: "spring", stiffness: 200, damping: 18 }} className="relative rounded-3xl border border-ink-border bg-ink-soft/60 p-6 backdrop-blur">
+              <motion.div whileHover={reduce ? {} : { rotate: -1.5, scale: 1.02 }} transition={{ type: "spring", stiffness: 200, damping: 18 }} className="relative rounded-3xl border border-ink-border bg-ink-soft/60 p-6 backdrop-blur">
                 <img src={kleon.image} alt="KLEON IoT gateway" loading="lazy" className="w-full rounded-2xl object-contain" />
                 <div className="mt-4 flex items-center justify-between border-t border-ink-border pt-4">
                   <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/40">KLEON — Data Everywhere</p>
