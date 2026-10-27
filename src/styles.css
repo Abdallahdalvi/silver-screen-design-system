@@ -55,7 +55,7 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 1rem;
 
   --background: oklch(0.978 0.006 247);          /* #F6F8FC */
   --foreground: oklch(0.21 0.03 264);            /* #111827 */
@@ -183,5 +183,22 @@
 @keyframes flowdash {
   to {
     stroke-dashoffset: -32;
+  }
+}
+
+/* Global reduced-motion safeguard: decorative loops, pings and transitions
+   collapse to instant state changes while content stays fully readable. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track,
+  .flow-dash {
+    animation: none !important;
   }
 }
