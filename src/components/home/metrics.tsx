@@ -8,7 +8,7 @@ export function Metrics() {
       <div className="mx-auto grid max-w-6xl gap-6 px-4 sm:px-6 md:grid-cols-3 lg:px-8">
         {metrics.map((m, i) => (
           <Reveal key={m.label} delay={i * 0.1}>
-            <div className="group relative overflow-hidden rounded-3xl border border-border bg-card p-8 text-center transition-shadow hover:shadow-xl hover:shadow-brand/5">
+            <div className="group relative overflow-hidden rounded-4xl border border-border bg-card p-8 text-center transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/10">
               <div
                 aria-hidden
                 className="absolute inset-x-0 top-0 h-1 opacity-0 transition-opacity group-hover:opacity-100"

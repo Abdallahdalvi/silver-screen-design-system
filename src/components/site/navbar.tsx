@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { nav } from "@/content/site";
@@ -20,6 +20,7 @@ const simpleLinks = nav.primary.filter((g) => "to" in g) as { label: string; to:
 
 function Dropdown({ group }: { group: { label: string; items: NavItem[] } }) {
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
   return (
     <div
       className="relative"
@@ -39,10 +40,10 @@ function Dropdown({ group }: { group: { label: string; items: NavItem[] } }) {
       <AnimatePresence>
         {open ? (
           <motion.div
-            initial={{ opacity: 0, y: 8 }}
+            initial={reduce ? false : { opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 8 }}
-            transition={{ duration: 0.18 }}
+            exit={reduce ? { opacity: 1 } : { opacity: 0, y: 8 }}
+            transition={reduce ? { duration: 0 } : { duration: 0.18 }}
             className="absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3"
           >
             <div className="w-80 rounded-2xl border border-ink-border bg-ink-soft/95 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl">
@@ -69,11 +70,12 @@ function Dropdown({ group }: { group: { label: string; items: NavItem[] } }) {
 
 function MobileMenu({ onClose }: { onClose: () => void }) {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const reduce = useReducedMotion();
   return (
     <motion.div
-      initial={{ opacity: 0 }}
+      initial={reduce ? { opacity: 1 } : { opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
+      exit={reduce ? { opacity: 1 } : { opacity: 0 }}
       className="fixed inset-0 z-50 bg-ink/98 backdrop-blur-xl lg:hidden"
     >
       <div className="flex items-center justify-between px-4 py-4 sm:px-6">
@@ -98,10 +100,10 @@ function MobileMenu({ onClose }: { onClose: () => void }) {
             <AnimatePresence initial={false}>
               {expanded === group.label ? (
                 <motion.div
-                  initial={{ height: 0, opacity: 0 }}
+                  initial={reduce ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
                   animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.25 }}
+                  exit={reduce ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+                  transition={{ duration: reduce ? 0 : 0.25 }}
                   className="overflow-hidden"
                 >
                   {group.items.map((item) => (
@@ -162,13 +164,15 @@ export function Navbar() {
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-40 transition-all duration-300",
-          scrolled ? "border-b border-ink-border bg-ink/85 backdrop-blur-xl" : "bg-transparent"
-        )}
-      >
-        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-5 sm:pt-4">
+        <div
+          className={cn(
+            "mx-auto flex max-w-7xl items-center justify-between gap-3 rounded-full border px-4 py-2.5 transition-all duration-300 sm:px-6",
+            scrolled || menuOpen
+              ? "border-ink-border bg-ink/80 shadow-2xl shadow-black/30 backdrop-blur-xl"
+              : "border-transparent bg-transparent"
+          )}
+        >
           <Link to="/" className="flex items-center" aria-label="Ubiqedge home">
             <img src={assets.logo} alt="Ubiqedge" className="h-9 w-auto sm:h-10" />
           </Link>
