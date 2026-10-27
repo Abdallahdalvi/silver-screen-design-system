@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
       {/* Cinematic backdrop */}
-      <motion.div style={reduce ? undefined : { y: imgY }} className="absolute inset-0" aria-hidden>
+      <motion.div style={reduce ? {} : { y: imgY }} className="absolute inset-0" aria-hidden>
         <img
           src={hero.image}
           alt=""
@@ -80,7 +80,7 @@ export function Hero() {
       <motion.a
         href="#customers"
         aria-label="Scroll to see our customers"
-        style={reduce ? undefined : { opacity: fade }}
+        style={reduce ? {} : { opacity: fade }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 transition-colors hover:text-white"
       >
         <ChevronDown className="h-6 w-6 animate-bounce" aria-hidden />

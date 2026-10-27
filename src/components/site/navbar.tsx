@@ -2,7 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { nav, assets } from "@/content/site";
+import { nav } from "@/content/site";
+import { assets } from "@/assets";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
