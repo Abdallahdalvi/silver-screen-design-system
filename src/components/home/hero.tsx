@@ -11,7 +11,7 @@ export function Hero() {
   const fade = useTransform(scrollY, [0, 500], [1, 0.25]);
 
   return (
-    <section className="relative min-h-[100svh] overflow-hidden bg-ink text-white">
+    <section className="relative min-h-[100svh] overflow-hidden rounded-b-[2.5rem] bg-ink text-white sm:rounded-b-[4rem]">
       {/* Cinematic backdrop */}
       <motion.div style={reduce ? {} : { y: imgY }} className="absolute inset-0" aria-hidden>
         <img

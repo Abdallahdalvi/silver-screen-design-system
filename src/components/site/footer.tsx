@@ -5,7 +5,7 @@ import { assets } from "@/assets";
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-ink-border bg-ink text-white">
+    <footer className="relative overflow-hidden rounded-t-[2.5rem] bg-ink text-white sm:rounded-t-[4rem]">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px"

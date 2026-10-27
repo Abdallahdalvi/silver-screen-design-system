@@ -27,7 +27,7 @@ export function Solutions() {
                   aria-selected={active === s.id}
                   onClick={() => setActive(s.id)}
                   className={cn(
-                    "group flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition-all",
+                    "group flex w-full items-center gap-4 rounded-3xl border p-4 text-left transition-all",
                     active === s.id
                       ? "border-brand/40 bg-card shadow-lg shadow-brand/5"
                       : "border-border bg-card/50 hover:border-brand/20 hover:bg-card"
@@ -58,7 +58,7 @@ export function Solutions() {
 
           {/* Panel */}
           <Reveal delay={0.1}>
-            <div className="relative h-full overflow-hidden rounded-3xl border border-border bg-card">
+            <div className="relative h-full overflow-hidden rounded-4xl border border-border bg-card">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}

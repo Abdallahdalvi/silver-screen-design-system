@@ -19,7 +19,7 @@ export function WhyUbiqedge() {
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {why.points.map((p, i) => (
                 <Reveal key={p.title} delay={0.1 + i * 0.06}>
-                  <div className="h-full rounded-2xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/5">
+                  <div className="h-full rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/5">
                     <div className="h-1.5 w-8 rounded-full bg-gradient-brand" aria-hidden />
                     <h3 className="mt-3 font-display text-base font-semibold text-foreground">{p.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
@@ -50,7 +50,7 @@ export function WhyUbiqedge() {
                 src={assets.kleonV3}
                 alt="KLEON industrial IoT gateway"
                 loading="lazy"
-                className="relative w-full rounded-3xl border border-border bg-white object-contain p-6 shadow-2xl shadow-brand/10"
+                className="relative w-full rounded-[2rem] border border-border bg-white object-contain p-6 shadow-2xl shadow-brand/10"
               />
               <img
                 src={assets.samasth2}

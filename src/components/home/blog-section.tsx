@@ -26,7 +26,7 @@ export function BlogSection() {
                 href={post.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/5"
+                className="group flex h-full flex-col overflow-hidden rounded-4xl border border-border bg-card transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand/5"
               >
                 <div className="relative aspect-[16/10] overflow-hidden bg-muted">
                   <img

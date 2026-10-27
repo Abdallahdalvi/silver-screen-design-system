@@ -14,7 +14,10 @@ interface PageHeroProps {
 export function PageHero({ eyebrow, title, highlight, sub, image, className }: PageHeroProps) {
   return (
     <section
-      className={cn("relative overflow-hidden bg-ink px-4 pb-20 pt-36 text-white sm:px-6 lg:px-8", className)}
+      className={cn(
+        "relative overflow-hidden rounded-b-[2.5rem] bg-ink px-4 pb-20 pt-36 text-white sm:rounded-b-[4rem] sm:px-6 lg:px-8",
+        className
+      )}
     >
       {image ? (
         <>
