@@ -25,7 +25,7 @@ export function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-ink to-transparent" />
       </motion.div>
 
-      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-4 pb-28 pt-40 sm:px-6 lg:px-8">
+      <div className="relative mx-auto flex min-h-[100svh] max-w-7xl flex-col justify-center px-4 pb-24 pt-32 sm:px-6 sm:pb-28 sm:pt-40 lg:px-8">
         <div className="max-w-3xl">
           <motion.p
             initial={reduce ? false : { opacity: 0, y: 16 }}
@@ -44,7 +44,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="mt-6 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl"
+            className="mt-5 font-display text-4xl font-bold leading-[1.05] tracking-tight sm:mt-6 sm:text-6xl lg:text-7xl"
           >
             {hero.headline}
             <br />
