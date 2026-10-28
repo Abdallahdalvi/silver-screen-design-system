@@ -4,6 +4,7 @@ import { why } from "@/content/site";
 import { assets } from "@/assets";
 import { SectionHeading } from "@/components/site/section-heading";
 import { Reveal } from "@/components/site/reveal";
+import { Float, Spotlight } from "@/components/site/fx";
 import { btnGhostLight } from "@/components/site/ui";
 
 export function WhyUbiqedge() {
@@ -19,11 +20,11 @@ export function WhyUbiqedge() {
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               {why.points.map((p, i) => (
                 <Reveal key={p.title} delay={0.1 + i * 0.06}>
-                  <div className="h-full rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-brand/5">
+                  <Spotlight className="h-full rounded-3xl border border-border bg-card p-5 transition-all hover:-translate-y-1 hover:border-brand/25 hover:shadow-lg hover:shadow-brand/10">
                     <div className="h-1.5 w-8 rounded-full bg-gradient-brand" aria-hidden />
                     <h3 className="mt-3 font-display text-base font-semibold text-foreground">{p.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
-                  </div>
+                  </Spotlight>
                 </Reveal>
               ))}
             </div>
@@ -35,7 +36,7 @@ export function WhyUbiqedge() {
             </Reveal>
           </div>
 
-          {/* Layered visual */}
+          {/* Layered visual — levitating hardware stack with an orbiting ring */}
           <Reveal delay={0.15} className="relative">
             <div className="relative mx-auto max-w-lg">
               <div
@@ -46,12 +47,18 @@ export function WhyUbiqedge() {
                     "radial-gradient(closest-side, var(--color-brand), var(--color-violet) 65%, transparent)",
                 }}
               />
-              <img
-                src={assets.kleonV3}
-                alt="KLEON industrial IoT gateway"
-                loading="lazy"
-                className="relative w-full rounded-[2rem] border border-border bg-white object-contain p-6 shadow-2xl shadow-brand/10"
+              <div
+                aria-hidden
+                className="spin-slow absolute -inset-5 rounded-[2.75rem] border border-dashed border-brand/25"
               />
+              <Float distance={12} duration={6}>
+                <img
+                  src={assets.kleonV3}
+                  alt="KLEON industrial IoT gateway"
+                  loading="lazy"
+                  className="relative w-full rounded-[2rem] border border-border bg-white object-contain p-6 shadow-2xl shadow-brand/10"
+                />
+              </Float>
               <img
                 src={assets.samasth2}
                 alt="SAMASTH cloud monitoring platform"
