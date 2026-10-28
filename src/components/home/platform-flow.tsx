@@ -43,7 +43,9 @@ export function PlatformFlow() {
                 stroke="url(#flowGradient)"
                 strokeWidth="2.5"
                 strokeLinecap="round"
-                style={{ pathLength: draw }}
+                strokeDasharray="1 1"
+                pathLength={1}
+                style={{ strokeDashoffset: 1 - draw.get() } as never}
               />
             )}
             <defs>
