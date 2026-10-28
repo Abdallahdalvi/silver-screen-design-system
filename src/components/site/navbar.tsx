@@ -4,6 +4,7 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { nav } from "@/content/site";
 import { assets } from "@/assets";
+import { Magnetic } from "@/components/site/fx";
 import { cn } from "@/lib/utils";
 
 interface NavItem {
@@ -52,9 +53,11 @@ function Dropdown({ group }: { group: { label: string; items: NavItem[] } }) {
                   key={item.to}
                   to={item.to}
                   onClick={() => setOpen(false)}
-                  className="block rounded-xl px-4 py-3 transition-colors hover:bg-white/5"
+                  className="group/item block rounded-xl px-4 py-3 transition-colors hover:bg-white/5"
                 >
-                  <span className="block text-sm font-semibold text-white">{item.label}</span>
+                  <span className="block text-sm font-semibold text-white transition-transform group-hover/item:translate-x-0.5">
+                    {item.label}
+                  </span>
                   {item.description ? (
                     <span className="mt-0.5 block text-xs text-white/50">{item.description}</span>
                   ) : null}
@@ -147,6 +150,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -185,21 +189,30 @@ export function Navbar() {
                 key={item.to}
                 to={item.to}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-white",
+                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-white",
                   pathname === item.to ? "text-white" : "text-white/80"
                 )}
               >
-                {item.label}
+                {pathname === item.to && !reduce ? (
+                  <motion.span
+                    layoutId="nav-active-pill"
+                    className="absolute inset-0 rounded-full border border-white/10 bg-white/10"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                ) : null}
+                <span className="relative">{item.label}</span>
               </Link>
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <Link
-              to={nav.cta.to}
-              className="hidden rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_var(--color-brand)] transition-all hover:-translate-y-0.5 md:inline-flex"
-            >
-              {nav.cta.label}
-            </Link>
+            <Magnetic strength={0.22} className="hidden md:inline-flex">
+              <Link
+                to={nav.cta.to}
+                className="relative rounded-full bg-gradient-brand px-5 py-2.5 text-sm font-semibold text-white shadow-[0_10px_30px_-10px_var(--color-brand)] transition-all hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-10px_var(--color-violet)]"
+              >
+                {nav.cta.label}
+              </Link>
+            </Magnetic>
             <button
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"

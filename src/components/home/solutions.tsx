@@ -29,17 +29,24 @@ export function Solutions() {
                   className={cn(
                     "group flex w-full items-center gap-4 rounded-3xl border p-4 text-left transition-all",
                     active === s.id
-                      ? "border-brand/40 bg-card shadow-lg shadow-brand/5"
+                      ? "border-brand/40 bg-card shadow-lg shadow-brand/10"
                       : "border-border bg-card/50 hover:border-brand/20 hover:bg-card"
                   )}
                 >
                   <span
                     className={cn(
-                      "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl font-display text-sm font-bold transition-colors",
-                      active === s.id ? "bg-gradient-brand text-white" : "bg-muted text-muted-foreground"
+                      "relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl font-display text-sm font-bold transition-colors",
+                      active === s.id ? "text-white" : "bg-muted text-muted-foreground"
                     )}
                   >
-                    {s.index}
+                    {active === s.id ? (
+                      <motion.span
+                        layoutId="solutions-chip"
+                        className="absolute inset-0 rounded-xl bg-gradient-brand"
+                        transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                      />
+                    ) : null}
+                    <span className="relative">{s.index}</span>
                   </span>
                   <span className="font-display text-sm font-semibold leading-snug text-foreground sm:text-base">
                     {s.title}
@@ -58,18 +65,26 @@ export function Solutions() {
 
           {/* Panel */}
           <Reveal delay={0.1}>
-            <div className="relative h-full overflow-hidden rounded-4xl border border-border bg-card">
+            <div className="relative h-full overflow-hidden rounded-4xl border border-border bg-card shadow-xl shadow-brand/5">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current.id}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -12 }}
-                  transition={{ duration: 0.35 }}
+                  initial={{ opacity: 0, y: 16, scale: 0.985 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.99 }}
+                  transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
                   className="flex h-full flex-col"
                 >
                   <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink">
-                    <img src={current.img} alt={`${current.title} visualization`} loading="lazy" className="h-full w-full object-cover" />
+                    <motion.img
+                      src={current.img}
+                      alt={`${current.title} visualization`}
+                      loading="lazy"
+                      initial={{ scale: 1.08 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className="h-full w-full object-cover"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
                     <p className="absolute bottom-4 left-6 font-display text-lg font-bold text-white sm:text-xl">
                       {current.title}
